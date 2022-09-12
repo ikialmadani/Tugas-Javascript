@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        let pegawai = "Rifqi",
+            jabatan = "Karyawan",
+            status = "Menikah",
+            gapok,
+            tunjanganJabatan,
+            tunjanganKeluarga,
+            bpjs,
+            gajitotal;
+
+            if (jabatan == "Karyawan"){
+                gapok = 12000000;
+            } else if (jabatan == "Asisten Manager") {
+                gapok = 10000000 ;
+            } else if (jabatan == "staff"){
+                gapok = 500000 ;
+            }
+
+            tunjanganJabatan = (gapok * 15) / 100;
+            bpjs = (gapok * 10 ) / 100;
+            tunjanganKeluarga = status == "Menikah" ? (gapok * 20) / 100 : 0;
+            gajitotal = gapok + tunjanganJabatan + tunjanganKeluarga + bpjs;
+            document.write(`
+             <h5> Nama Pegawai : ${pegawai} </h5>
+    <h5> Jabatan Pekerjaan : ${jabatan}</h5>
+    <h5> Status : ${status}</h5>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    data gaji
+                </th>
+                <th>
+                    nominal gaji
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Gaji Pokok
+                </td>
+                <td>${gapok}</td>
+            </tr>
+            <tr>
+                <td>
+                    tunjangan Jabatan
+                </td>
+                <td>${tunjanganJabatan}</td>
+            </tr>
+            <tr>
+                <td>
+                    Tunjangan Keluarga
+                </td>
+                <td>${tunjanganKeluarga}</td>
+            </tr>
+            <tr>
+                <td>
+                    Bpjs
+                </td>
+                <td>${bpjs}</td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    Total Gaji
+                </th>
+                <th>${gajitotal}</th>
+            </tr>
+        </tfoot>
+    </table>
+            `)
+
+    </script>
+    
+</body>
+</html>
