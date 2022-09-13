@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h3 align="center">Daftar Pegawai</h3>
+<table align="center" cellpadding="10" width="40%";
+<thead>
+    <tr bgcolor="brown">
+        <th>Nomor</th>
+        <th>Nama</th>
+        <th>Jabatan</th>
+        <th>Agama</th>
+        <th>Gaji Pokok</th>
+        <th>Tunjangan Jabatan</th>
+        <th>Tunjangan Kesehatan</th>
+        <th>Gaji Kotor</th>
+        <th>Zakat Profesi</th>
+        <th>Take Home Pay</th>
+    </tr>
+</thead>
+<tbody>
+    <script language="javascript">
+        let Jabatan,
+            Agama,
+            gajiPokok,
+            warna;
+
+
+
+    for (let Numbers = 1; Numbers <= 100; Numbers++) {
+        if(Numbers <= 25) Jabatan = "Manager";
+        else if(Numbers <= 50  ) Jabatan = "Asisten Manager";
+        else if(Numbers <= 75  ) Jabatan = "SuperVisor";
+        else if(Numbers <=100  ) Jabatan = "Staff";
+
+    switch(Jabatan){
+        case "Manager" : gajiPokok = 15000000; break;
+        case "Asisten Manager" : gajiPokok = 1000000; break;
+        case "Super Visor" : gajiPokok = 7000000; break;
+        case "Staff" : gajiPokok = 4000000; break;
+        default : gajiPokok = 15000000; break;
+    }
+
+    let tunjanganJabatan = gajiPokok * 20 / 100;
+    let tunjanganKesehatan = gajiPokok * 10 / 100;
+    let gajiKotor = gajiPokok + tunjanganJabatan + tunjanganKesehatan;
+        Agama = (Numbers % 2 == 0) ? "Non Muslim" : "Muslim";
+        warna = (Numbers % 2 == 0) ? "Blue" : "yellow";
+    let zakatProfesi = (Agama == "Muslim" && gajiKotor >= 7000000 ) ?  gajiKotor * 2.5 / 100:0
+    let takeHomePay = gajiKotor - zakatProfesi;
+    document.write(`
+    <tr bgcolor="${warna}">
+        <td>${Numbers}</td>
+        <td>Pegawai${Numbers}</td>
+        <td>${Jabatan}</td>
+        <td>${Agama}</td>
+        <td>${gajiPokok}</td>
+        <td>${tunjanganJabatan}</td>
+        <td>${tunjanganKesehatan}</td>
+        <td>${gajiKotor}</td>
+        <td>${zakatProfesi}</td>
+        <td>${takeHomePay}</td>
+    </tr>
+    `)
+            }
+    </script>
+   
+</tbody>
+<body>
