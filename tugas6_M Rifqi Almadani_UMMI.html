@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+            <tr bgcolor="tomato" >
+                <th>No</th>
+                <th>Lokasi</th>
+                <th>Skala</th>
+                <th>Dampak</th>
+            </tr>
+        </thead>
+        <tbody id="tampil">           
+        </tbody>
+    </table>
+    <script>
+        let tampil = document.getElementById('tampil');
+        no = 1;
+        class Gempa {
+            constructor(lokasi, skala) {
+                this.lokasi = lokasi;
+                this.skala = skala;
+
+            }
+            dampakGempa() {
+                if(this.skala <=2 ) return this.dampak = "Runtuh";
+                if(this.skala <=4 ) return this.dampak = "Bangunan Roboh";
+                if(this.skala <=6 ) return this.dampak = "berpotensi tsunami";
+                return this.dampak = "";
+                
+            }
+            infoGempa() {
+                tampil.innerHTML += `
+                <tr>
+                    <td>${no++}</td>
+                    <td>${this.lokasi}</td>
+                    <td>${this.skala}</td>
+                    <td>${this.dampakGempa()}</td>
+                </tr>
+            `;
+            }
+
+        }
+        const gempa1 = new Gempa('Aceh', 2);
+        gempa1.infoGempa();
+        const gempa2 = new Gempa('Lampung', 3);
+        gempa2.infoGempa();
+        const gempa3 = new Gempa('Jakarta', 4);
+        gempa3.infoGempa();
+        const gempa4 = new Gempa('Sumatera Utara', 8);
+        gempa4.infoGempa();
+        const gempa5 = new Gempa('Sulawesi Selatan', 2);
+        gempa5.infoGempa();
+        const gempa6 = new Gempa('Majalengka', 3);
+        gempa6.infoGempa();
+        const gempa7 = new Gempa('Papua', 2);
+        gempa7.infoGempa();
+        const gempa8 = new Gempa('Bekasi', 2);
+        gempa8.infoGempa();
+    </script>
+    
+</body>
+</html>
